@@ -40,9 +40,10 @@ LEFT JOIN airconditioningtype using(airconditioningtypeid)
 LEFT JOIN architecturalstyletype using(architecturalstyletypeid)
 LEFT JOIN buildingclasstype using(buildingclasstypeid)
 LEFT JOIN heatingorsystemtype using(heatingorsystemtypeid)
+LEFT JOIN typeconstructiontype USING (typeconstructiontypeid)
 LEFT JOIN storytype using(storytypeid)
 WHERE properties_2017.latitude IS NOT NULL AND properties_2017.longitude IS NOT NULL AND max_date LIKE '2017%%'
-AND propertylandusetype.propertylandusetypeid = 261 OR 279
+AND propertylandusetypeid = 261 OR 279;
 """, 
         get_connection('zillow'))
         zillow.to_csv(index = False)
